@@ -1,0 +1,17 @@
+{
+  "name": "obscurebit",
+  "short_name": "obscurebit",
+  "description": "Small experiments with technology, software, art, sound, AI, and design.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#050608",
+  "theme_color": "#07060d",
+  "icons": [
+    {
+      "src": "assets/favicon.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+  ]
+}

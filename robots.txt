@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /obvious/
+Disallow: /tmp/
+
+# 418 - obscure bits encountered
+# dead drop: /poem.txt

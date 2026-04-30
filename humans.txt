@@ -1,0 +1,12 @@
+obscurebit
+==========
+
+418 - obscure bits encountered
+
+A public shelf for small machines, soft instruments, generated dispatches, and
+other experiments that should probably be found by accident.
+
+If you are reading this, the source view is working as intended.
+
+Dead drop: /poem.txt
+If a command asks for a password, try the thing you came here with.

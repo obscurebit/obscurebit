@@ -1,0 +1,7 @@
+status: 418
+message: obscure bits encountered
+scope: experiments/*
+policy: no obvious paths
+last-known-good: Feb 13 23:31:30
+clue: curiosity grants read-only wonder
+next: ?trace=1

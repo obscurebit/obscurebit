@@ -1,4 +1,7 @@
 <!doctype html>
+<!-- 418 - obscure bits encountered -->
+<!-- node 004 reserved; do not index until signal stabilizes -->
+<!-- poem fragment: /poem.txt -->
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -17,24 +20,69 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://obscurebit.com/">
     <link rel="canonical" href="https://obscurebit.com/">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
+    <link rel="manifest" href="manifest.webmanifest">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "obscurebit",
+        "url": "https://obscurebit.com/",
+        "description": "A growing collection of experiments with technology, software, art, sound, AI, and design.",
+        "hasPart": [
+          {
+            "@type": "CreativeWork",
+            "name": "bits",
+            "url": "https://bits.obscurebit.com/"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "OAV",
+            "url": "https://oav.obscurebit.com/"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "name": "DJ",
+            "applicationCategory": "MultimediaApplication",
+            "url": "https://dj.obscurebit.com/"
+          }
+        ]
+      }
+    </script>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
   </head>
   <body>
     <div class="grain" aria-hidden="true"></div>
+    <div class="scan-beam" aria-hidden="true"></div>
+    <div class="easter-egg" aria-live="polite" aria-atomic="true">
+      418 - obscure bits encountered
+    </div>
+    <div class="poem-burst" aria-live="polite" aria-atomic="true">
+      <span>i am an ai teapot, short on steam</span>
+      <span>i steep your prompts inside a dream</span>
+      <span>ask for coffee, i serve a stream</span>
+    </div>
+    <div class="sudo-overlay" role="dialog" aria-modal="true" aria-label="Terminal access simulation" hidden>
+      <div class="sudo-terminal">
+        <div class="sudo-chrome" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <strong>root@obscurebit:/experiments</strong>
+        </div>
+        <pre class="sudo-output" aria-live="polite"></pre>
+        <p class="sudo-hint">press esc to close</p>
+      </div>
+    </div>
     <main class="site-shell">
       <header class="hero" aria-labelledby="page-title">
         <div class="brand-row">
-          <a class="brand-mark" href="/" aria-label="obscurebit home">
-            <img
-              class="brand-logo"
-              src="assets/obscurebit-logo-light-cropped.png"
-              width="846"
-              height="534"
-              alt=""
-            >
-            <span class="sr-only">obscurebit</span>
-          </a>
-          <p class="eyebrow">/var/www/obscurebit :: public nodes</p>
+          <p class="eyebrow">
+            <span class="online-led" aria-hidden="true"></span>
+            <span>/var/www/obscurebit :: public nodes</span>
+          </p>
         </div>
         <div class="hero-grid">
           <h1 id="page-title">For the curious.</h1>
@@ -49,46 +97,54 @@
         <p>
           find ./experiments -type f -perm -u+x -not -path "*/obvious/*"
         </p>
-        <span>drwx------@ 4 obscurebit staff 123B Feb 13 23:31:30 Experiments</span>
+        <span id="status-line">drwx------@ 4 obscurebit staff 123B Feb 13 23:31:30 Experiments</span>
       </section>
 
       <section class="project-grid" aria-label="Experiments">
+        <!-- last_seen values are ceremonial; the machines are not required to be truthful. -->
         <a class="project-card project-card--bits" href="https://bits.obscurebit.com/">
           <span class="project-number">001</span>
           <span class="project-kind">generated daily</span>
-          <h2>b1ts</h2>
+          <span class="trace-data">trace route=/bits latency=31ms mode=cron signal=warm</span>
+          <h2>bits</h2>
           <p>
             AI-generated sci-fi stories and curated links from hidden corners of
             the web, published daily.
           </p>
+          <span class="project-meta">last_seen=03:17Z checksum=0xB175 entropy=82%</span>
           <span class="project-action">https serve bits.obscurebit.com</span>
         </a>
 
         <a class="project-card project-card--oav" href="https://oav.obscurebit.com/">
           <span class="project-number">002</span>
           <span class="project-kind">ai / audio / visual</span>
+          <span class="trace-data">trace route=/oav latency=44ms mode=vision signal=drift</span>
           <h2>OAV</h2>
           <p>
             AI model audio-visual output, poetic text, drift, and synthetic
             atmosphere in a single unstable viewport.
           </p>
+          <span class="project-meta">last_seen=01:44Z checksum=0x0A7F entropy=91%</span>
           <span class="project-action">https serve oav.obscurebit.com</span>
         </a>
 
         <a class="project-card project-card--dj" href="https://dj.obscurebit.com/">
           <span class="project-number">003</span>
           <span class="project-kind">rhythm / synth</span>
+          <span class="trace-data">trace route=/dj latency=23ms mode=clock signal=pulse</span>
           <h2>DJ</h2>
           <p>
             A rhythm box and synth box for making pulses, loops, and small
             electronic weather.
           </p>
+          <span class="project-meta">last_seen=23:09Z checksum=0xD10D entropy=67%</span>
           <span class="project-action">https serve dj.obscurebit.com</span>
         </a>
 
         <article class="project-card project-card--ghost" aria-label="Future project slot">
           <span class="project-number">004</span>
           <span class="project-kind">reserved frequency</span>
+          <span class="trace-data">trace route=/unknown latency=??? mode=reserved signal=locked</span>
           <div class="frequency-graphic" aria-hidden="true">
             <span></span>
             <span></span>
@@ -101,6 +157,7 @@
         <article class="project-card project-card--ghost" aria-label="Future project slot">
           <span class="project-number">005</span>
           <span class="project-kind">reserved frequency</span>
+          <span class="trace-data">trace route=/unknown latency=??? mode=reserved signal=asleep</span>
           <div class="frequency-graphic frequency-graphic--alt" aria-hidden="true">
             <span></span>
             <span></span>
@@ -113,6 +170,7 @@
     </main>
 
     <footer class="site-footer">
+      <span>view-source advised</span>
       <a href="https://buymeacoffee.com/dudash">buy me a coffee</a>
     </footer>
   </body>

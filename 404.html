@@ -1,0 +1,56 @@
+<!doctype html>
+<!-- missing route captured; serving kettle response -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>418 - obscure bits encountered</title>
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#07060d">
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/script.js" defer></script>
+  </head>
+  <body class="not-found">
+    <div class="grain" aria-hidden="true"></div>
+    <main class="site-shell not-found-shell">
+      <header class="hero not-found-hero" aria-labelledby="missing-title">
+        <div class="brand-row">
+          <p class="eyebrow">route lookup failed :: kettle response</p>
+        </div>
+        <div class="hero-grid">
+          <h1 id="missing-title">418</h1>
+          <p class="intro">
+            obscure bits encountered. the requested path is not indexed, but the
+            signal is still warm.
+          </p>
+        </div>
+      </header>
+
+      <section class="manifest" aria-label="Missing route note">
+        <p>find ./experiments -type f -not -path "*/missing/*"</p>
+        <span>lrwx------@ 1 obscurebit staff 404B now /missing -> /curious</span>
+      </section>
+
+      <section class="project-grid" aria-label="Recovery routes">
+        <a class="project-card project-card--bits not-found-card" href="/">
+          <span class="project-number">000</span>
+          <span class="project-kind">return route</span>
+          <span class="trace-data">trace route=/ latency=18ms mode=recover signal=home</span>
+          <h2>home</h2>
+          <p>Return to the public nodes before this path starts inventing itself.</p>
+          <span class="project-action">https serve obscurebit.com</span>
+        </a>
+
+        <a class="project-card project-card--ghost not-found-card" href="/poem.txt">
+          <span class="project-number">418</span>
+          <span class="project-kind">hidden text</span>
+          <span class="trace-data">trace route=/poem.txt latency=4ms mode=text signal=faint</span>
+          <h2>poem</h2>
+          <p>A small text file left in the wall.</p>
+          <span class="project-action">cat /poem.txt</span>
+        </a>
+      </section>
+    </main>
+  </body>
+</html>

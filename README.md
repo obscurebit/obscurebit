@@ -9,3 +9,5 @@ the workbench.
 
 If something here blinks, hums, renders, mutates, or publishes itself at 03:17,
 that is expected behavior.
+
+View source before assuming the page is empty.
