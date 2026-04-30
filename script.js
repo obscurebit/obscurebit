@@ -1,5 +1,4 @@
 (() => {
-  const MIXPANEL_TOKEN = "507278c7e96ec74c3a554c73db81fa8f";
   const secret = "obscure";
   const poemSecret = "418";
   const sudoSecret = "sudo";
@@ -65,6 +64,7 @@
     path: window.location.pathname,
     search: window.location.search,
     title: document.title,
+    page_type: document.body.classList.contains("not-found") ? "404" : "home",
     trace_enabled: document.body.classList.contains("trace-mode")
   });
 
@@ -73,65 +73,9 @@
       window.mixpanel.track(eventName, { ...analyticsProperties(), ...properties });
     }
   };
-
-  const loadAnalytics = () => {
-    if (!window.mixpanel?.__SV) {
-      window.mixpanel = window.mixpanel || [];
-      window.mixpanel._i = [];
-      window.mixpanel.init = function init(token, config, name) {
-        const targetName = name || "mixpanel";
-        const target = name ? (window.mixpanel[name] = []) : window.mixpanel;
-        const methods = (
-          "disable time_event track track_pageview track_links track_forms track_with_groups " +
-          "add_group set_group remove_group register register_once alias unregister identify " +
-          "name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking " +
-          "has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders people.set " +
-          "people.set_once people.unset people.increment people.append people.union " +
-          "people.track_charge people.clear_charges people.delete_user people.remove"
-        ).split(" ");
-
-        const addStub = (object, method) => {
-          const parts = method.split(".");
-          const methodName = parts.pop();
-          const container = parts.reduce((memo, part) => {
-            memo[part] = memo[part] || [];
-            return memo[part];
-          }, object);
-
-          container[methodName] = function stubbedMixpanelMethod(...args) {
-            object.push([method, ...args]);
-          };
-        };
-
-        target.people = target.people || [];
-        target.toString = () => `${targetName} (stub)`;
-        target.people.toString = () => `${target.toString()}.people (stub)`;
-        methods.forEach((method) => addStub(target, method));
-        window.mixpanel._i.push([token, config, targetName]);
-      };
-      window.mixpanel.__SV = 1.2;
-
-      const script = document.createElement("script");
-      script.async = true;
-      script.src = "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";
-      const firstScript = document.getElementsByTagName("script")[0];
-      if (firstScript?.parentNode) {
-        firstScript.parentNode.insertBefore(script, firstScript);
-      } else {
-        document.head.append(script);
-      }
-    }
-
-    window.mixpanel.init(MIXPANEL_TOKEN, {
-      debug: ["localhost", "127.0.0.1"].includes(window.location.hostname),
-      persistence: "localStorage"
-    });
-    track("page_viewed", {
-      referrer_host: document.referrer ? new URL(document.referrer).hostname : ""
-    });
-  };
-
-  loadAnalytics();
+  track("page_viewed", {
+    referrer_host: document.referrer ? new URL(document.referrer).hostname : ""
+  });
 
   const enableTrace = (source = "url") => {
     document.body.classList.add("trace-mode");
@@ -177,7 +121,8 @@
 
   if (!reducedMotion && statusLine) {
     window.setInterval(() => {
-      if (document.body.classList.contains("signal-open") || !sudoOverlay?.hidden) {
+      const sudoOpen = sudoOverlay ? !sudoOverlay.hidden : false;
+      if (document.body.classList.contains("signal-open") || sudoOpen) {
         return;
       }
 

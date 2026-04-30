@@ -5,7 +5,7 @@
 - Mode: Quick Start.
 - Platform: static web / browser JavaScript.
 - SDK: Mixpanel browser SDK, loaded asynchronously in `script.js`.
-- Project token location: `MIXPANEL_TOKEN` constant in `script.js`.
+- Project token location: official Mixpanel bootstrap snippets in `index.html` and `404.html`.
 - CDP or warehouse routing: none.
 - Consent gate: none. Site owner confirmed Virginia, USA based.
 - Value Moment: `project_clicked`, fired when a visitor opens one of the experiment links.
